@@ -1,0 +1,76 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  /* background-color: #f4f4f4; */
+}
+.main{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/images/LoginPageBackground.jpg);
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.logo{
+  width: 400px;
+  left: 710px;
+  top: 40px;
+  position: absolute;
+
+}
+.login-container {
+  width: 300px;
+  height: 320px;
+  margin-left: 750px;
+  margin-top: 110px;
+  padding: 20px;
+  /* background-color: #fff; */
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.login-text{
+  margin-left: 80px;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type="submit"] {
+  width: 150px;
+  margin-left: 55px;
+  margin-top: 15px;
+  background-color: rgb(210,99,188);
+  color: white;
+  padding: 10px;
+  /* margin: 12px 0; */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: rgb(63,187,218);
+}
+.dont{
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 25px;
+  color: rgb(56, 56, 56);
+}
+.signUp{
+  text-decoration: none;
+  color: red;
+  font-weight: 600;
+}
+.signUp:hover{
+  color: green;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="main">
+    <img src="images/zencart-logo-png.png" alt="logo" class="logo">
+    <div class="login-container">
+      <h2 class="login-text">Login</h2>
+      <form action="/home" method="post">
+        <label for="username">Username :</label>
+        <input type="text" id="username" name="userName" placeholder="Enter your username">
+  
+        <label for="password">Password :</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+  
+        <p class="dont">Don't have an account ? <a href="/signUp" class="signUp">Sign Up</a></p>
+  
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </div>
+</body>
+</html>

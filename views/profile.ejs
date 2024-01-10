@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    
+    <div class="main">
+        <div class="profile">
+            <img src="<%= address.imagePath %>" alt="profile-image">
+        </div>
+        <div class="details">
+            <label for="name">Name : </label>
+            <div class="name"><p><%= address.name %></p></div>
+            <label for="userName">userName : </label>
+            <div class="userName"><p><%= userData.userName %></p></div>
+            <label for="email">Email: </label>
+            <div class="email"><p><%= userData.email %></p></div>
+            <label for="gender">gender : </label>
+            <div class="gender"><p><%= address.gender %></p></div>
+            <label for="number">Number : </label>
+            <div class="number"><p><%= address.number %></p></div>
+            <label for="address">Address : </label>
+            <div class="address"><%= address.address %></div>
+        </div>
+        <button type="submit" onclick="window.location.href='/profile/edit'">Edit Profile</button>
+    </div>
+
+</body>
+</html>

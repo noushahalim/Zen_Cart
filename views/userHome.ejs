@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zencart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/userHome.css">
+</head>
+<body>
+    <div class="main">
+        <div class="nav">
+            <img src="images/zencart-logo-white.jpg" alt="logo" class="logo">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="search" name="search" class="search-box" placeholder="Search for Products, Brands and More">
+            </div>
+            <button class="cart">
+                <i class="fa-solid fa-cart-shopping cart-icon"></i>
+                <p class="cart-text">Cart</p>
+            </button>
+            <a href="/profile" class="profile">
+                <i class="fa-regular fa-circle-user user-icon"></i>
+                <p class="profile-text">Profile</p>
+            </a>
+            <a href="/logout" class="logout">
+                <i class="fa-solid fa-arrow-right-from-bracket logout-icon"></i>
+                <p class="logout-text">LogOut</p>
+            </a>
+        </div>
+        <div class="center">
+            <% productDatas.forEach((data)=>{  %>
+                <div class="card">
+                    <div class="image"><img src="<%= data.imagePath %>" alt="Product Image" class="productImage"></div>
+                    <div class="name"><%= data.productName %></div>
+                    <div class="price"> ₹ <%= data.productPrice %></div>
+                    <div class="details"><%= data.productDescription %></div>
+                    <div class="buy">
+                        <button class="buy1">Buy Now</button>
+                        <button class="buy2">Add Cart</button>
+                    </div>
+                </div>
+           <% }) %>
+        </div>
+        <div class="footer">
+            <p class="copyright-text">©2024-2124 Zencart.com</p>
+        </div>
+    </div>
+</body>
+</html>
