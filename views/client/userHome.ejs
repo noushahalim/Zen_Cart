@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zencart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/userHome.css">
+    <link rel="stylesheet" href="/css/userHome.css">
 </head>
 <body>
     <div class="main">
         <div class="nav">
-            <img src="images/zencart-logo-white.jpg" alt="logo" class="logo">
+            <img src="/images/zencart-logo-white.jpg" alt="logo" class="logo">
             <div class="search">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 <input type="search" name="search" class="search-box" placeholder="Search for Products, Brands and More">
@@ -31,7 +31,7 @@
         <div class="center">
             <% productDatas.forEach((data)=>{  %>
                 <div class="card">
-                    <div class="image"><img src="<%= data.imagePath %>" alt="Product Image" class="productImage"></div>
+                    <div class="image"><img src="/<%= data.imagePath %>" alt="Product Image" class="productImage"></div>
                     <div class="name"><%= data.productName %></div>
                     <div class="price"> ₹ <%= data.productPrice %></div>
                     <div class="details"><%= data.productDescription %></div>

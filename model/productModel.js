@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-// const userDatas=require('../model/userDatas')
-
 mongoose.connect("mongodb://localhost:27017/ZenCart")
 .then(()=>{
     console.log("mongoDB connected for ProductDatas");

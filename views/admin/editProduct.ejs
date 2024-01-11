@@ -10,7 +10,7 @@
 
   <center><h2>Edit Product - Admin</h2></center>
 <br><br>
-  <form id="addProductForm" action="/editProduct/<%= product._id %>" method="post" enctype="multipart/form-data">
+  <form id="addProductForm" action="/admin/editProduct/<%= product._id %>" method="post" enctype="multipart/form-data">
     <label for="productName">Product Name:</label>
     <input type="text" id="productName" name="productName" required value="<%= product.productName %>">
 
