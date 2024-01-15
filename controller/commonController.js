@@ -8,6 +8,12 @@ const emailRejex=/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 
+//field to direct '/' to home
+
+exports.localRouter=(req,res)=>{
+    res.redirect('/client/home')
+}
+
 //Fields to Controll login page
 
 
@@ -32,7 +38,7 @@ exports.loginPost=async(req,res)=>{
         
         if(pass){
             req.session.userName=check.userName
-            if(check.roll==='admin'){
+            if(check.role==='admin'){
                 req.session.admin=true
                 res.redirect('/admin/home')
                 console.log(`${check.userName} is logged as admin`);
@@ -115,49 +121,64 @@ exports.signUpPost=async (req,res)=>{
 //Field to controll logout
 
 exports.logoutGet=(req,res)=>{
-    req.session.destroy()
-    res.redirect('/login')
+    if(req.session.userName){
+        req.session.destroy()
+        res.redirect('/login')
+    }
+    else{
+        res.redirect('/login')
+    }
 }
 
 
 //Fields to Controll Profile
 
 exports.profileGet=async(req,res)=>{
-    try{ 
-        const usrname=req.session.userName
-        const userData=await userDatas.findOne({userName:usrname})
-        const profieDatas = await profileDetails.findOne({userId:userData._id})
-
-        if(profieDatas){
-          const userFullData = await userDatas.aggregate([
-                {
-                    $match: {_id:profieDatas.userId }
-                },
-                {
-                    $lookup: {
-                        from: 'profiledetails',
-                        localField: '_id',
-                        foreignField: 'userId',
-                        as: 'userDetails'
-                    }
-                } 
-            ]);
-            const obj = userFullData[0].userDetails[0]
-            res.render('common/profile',{userData,address:obj})
+    if(req.session.userName){
+        try{ 
+            const usrname=req.session.userName
+            const userData=await userDatas.findOne({userName:usrname})
+            const profieDatas = await profileDetails.findOne({userId:userData._id})
+    
+            if(profieDatas){
+              const userFullData = await userDatas.aggregate([
+                    {
+                        $match: {_id:profieDatas.userId }
+                    },
+                    {
+                        $lookup: {
+                            from: 'profiledetails',
+                            localField: '_id',
+                            foreignField: 'userId',
+                            as: 'userDetails'
+                        }
+                    } 
+                ]);
+                const obj = userFullData[0].userDetails[0]
+                res.render('common/profile',{userData,address:obj})
+            }
+            else{
+                res.render('common/profile',{userData,address:''})
+            }    
+    }
+        catch(error){
+            console.log('error when getting profile',error.message);
         }
-        else{
-            res.render('common/profile',{userData,address:''})
-        }    
-}
-    catch(error){
-        console.log('error when getting profile',error.message);
+    }
+    else{
+        res.redirect('/login')
     }
 }
 
 
 
 exports.profileEditGet=(req,res)=>{
-    res.render('common/profileEdit')
+    if(req.session.userName){
+        res.render('common/profileEdit')
+    }
+    else{
+        res.redirect('/login')
+    }
 }
 
 

@@ -15,7 +15,7 @@
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 <input type="search" name="search" class="search-box" placeholder="Search for Products, Brands and More">
             </div>
-            <button class="cart">
+            <button class="cart" type="submit" onclick="window.location.href='/client/cart'">
                 <i class="fa-solid fa-cart-shopping cart-icon"></i>
                 <p class="cart-text">Cart</p>
             </button>
@@ -37,7 +37,7 @@
                     <div class="details"><%= data.productDescription %></div>
                     <div class="buy">
                         <button class="buy1">Buy Now</button>
-                        <button class="buy2">Add Cart</button>
+                        <button class="buy2" type="submit" onclick="window.location.href='/client/addCart/<%= data._id %>'">Add Cart</button>
                     </div>
                 </div>
            <% }) %>

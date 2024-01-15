@@ -6,6 +6,10 @@ const upload = multer({ storage: storage })
 const commonController=require('../controller/commonController')
 
 
+//field to direct '/' to home
+
+router.get('/',commonController.localRouter)
+
 //Fields to Controll login page
 
 router.get('/login',commonController.loginGet)

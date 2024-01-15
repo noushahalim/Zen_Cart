@@ -21,7 +21,7 @@ const signUpSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    roll:{
+    role:{
         type:String,
         required:true,
         default:'user'

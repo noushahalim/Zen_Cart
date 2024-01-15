@@ -13,7 +13,8 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    position: fixed;
+    position: sticky;
+    top: 0;
     background-color: rgb(241, 240, 240);
 }
 .logo{
@@ -43,7 +44,7 @@
     font-weight: 100;
     padding-left: 10px;
 }
-.cart{
+.home{
     width: 100px;
     display: flex;
     height: 40px;
@@ -55,14 +56,14 @@
     cursor: pointer;
     margin-left: 150px;
 }
-.cart:hover{
+.home:hover{
     background-color: rgb(240,245,255);
 }
-.cart-icon{
+.home-icon{
     font-size: 20px;
     padding-right: 15px;
 }
-.cart-text{
+.home-text{
     font-size: 18px;
 }
 .profile{
@@ -109,13 +110,175 @@
 }
 .center{
     width: 98.7vw;
-    padding: 130px 80px 50px 130px;
+    padding: 30px 80px 30px 80px;
     background-color: rgb(231, 231, 231);
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 50px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
+.card{
+    width: 85vw;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-color: rgb(243, 243, 243);
+    display: flex;
+}
+.image{
+    margin: 5px;
+    width: 250px;
+    height: 238px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+.details-section{
+    width: 500px;
+}
+.name{
+    margin-right: 10px;
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 80px;
+}
+.details{
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: blue;
+    /* border: 1px solid; */
+    height: 100px;
+}
+.price{
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    color: green;
+    height: 40px;
+}
+.hr1{
+    height: 200px;
+    margin-top: 25px;
+}
+.controll{
+    padding: 70px 10px 10px 120px;
+}
+.quantity{
+    display: flex;
+
+}
+.quantity-text{
+    font-size: 20px;
+}
+.quantity-button{
+    background-color: green;
+    color: white;
+    padding: 3px;
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-left: 20px;
+    border: 1px solid rgb(53, 124, 31);
+}
+.remove{
+    background-color: red;
+    color: white;
+    padding: 3px;
+    width: 180px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 30px;
+    border: 1px solid rgb(190, 44, 44);
+
+}
+.order{
+   height: 150px; 
+   display: flex;
+   padding-left: 80px;
+   position: sticky;
+   bottom: 0px;
+   background-color: rgb(241, 240, 240);
+   width: 98.7vw;
+   box-shadow: 0px 1px 12px -5px;
+}
+.order-1{
+    width: 800px;
+}
+.price-text{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #878787;
+    margin: 10px 150px;
+}
+.hr2{
+    width: 500px;
+    margin-left: 50px;
+}
+.price-det{
+    display: flex;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 18px;
+    gap: 100px;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+.delivary{
+    display: flex;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 18px;
+    gap: 80px;
+    margin-left: 100px;
+    margin-top: 5px;
+}
+.total{
+    display: flex;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 18px;
+    gap: 105px;
+    margin-left: 50px;
+    margin-top: 5px;
+    font-weight: 600;
+    border: 1px dashed rgb(158, 158, 158);
+    border-left: hidden;
+    border-right: hidden;
+    padding: 6px 0px 6px 50px;
+    width: 500px;
+}
+.order-2{
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+.order-text{
+    border: none;
+    border-radius: 7px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 10px 35px 10px 35px;
+    background-color: rgb(251,100,27);
+    color: white;
+    font-family: Roboto, Arial, sans-serif;
+    cursor: pointer;
+}
+.order-text:hover{
+    background-color: rgb(250,65,83);
+    
+}
 .footer{
     width: 98.7vw;
     height: 80px;
@@ -127,78 +290,4 @@
 .copyright-text{
     color: white;
     font-size: 15px;
-}
-.card{
-    width: 300px;
-    height: fit-content;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    background-color: rgb(243, 243, 243);
-}
-.image{
-    margin: 5px;
-    width: 290px;
-    height: 250px;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid grey;
-}
-.name{
-    margin-right: 10px;
-    margin-left: 30px;
-    margin-top: 10px;
-    font-size: 28px;
-    font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.price{
-    margin-left: 40px;
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: 500;
-    font-family: Arial, Helvetica, sans-serif;
-    color: green;
-}
-.details{
-    margin-left: 20px;
-    margin-top: 5px;
-    margin-right: 20px;
-    font-size: 17px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: blue;
-}
-.buy{
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-around;
-}
-.buy1{
-    background-color: green;
-    color: white;
-    padding: 3px;
-    width: 80px;
-    border-radius: 5px;
-    border: 1px solid rgb(38, 99, 26);
-    cursor: pointer;
-}
-.buy1:hover{
-    background-color: rgb(1, 78, 1);
-}
-.buy2{
-    background-color: blue;
-    color: white;
-    padding: 3px;
-    width: 80px;
-    border-radius: 5px;
-    border: 1px solid rgb(25, 42, 97);
-    cursor: pointer;
-}
-.buy2:hover{
-    background-color: rgb(0, 0, 112);
 }

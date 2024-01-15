@@ -1,6 +1,6 @@
 const productModel = require("../model/productModel");
 
-//Fields to Controll user admin page
+//Fields to Controll admin home page
 
 exports.homeGet = async (req, res) => {
   try {
@@ -22,7 +22,12 @@ exports.homeGet = async (req, res) => {
 //Fields to Controll Add product
 
 exports.addProductGet=(req,res)=>{
-  res.render('admin/addProduct')
+  if(req.session.admin){
+    res.render('admin/addProduct')
+  }
+  else{
+      res.redirect('/login')
+  }
 }
 
 exports.addProductPost=async(req,res)=>{
@@ -43,22 +48,27 @@ exports.addProductPost=async(req,res)=>{
 //Fields to Controll Delete product
 
 exports.deleteProductGet=async(req,res)=>{
-  try{
-      const id=req.params.productId
-      const product= await productModel.findById(id)
-      
-      if(!product){
-          console.log('Product not found');
-      }
-      else{
-          await productModel.findByIdAndDelete(id);
-          console.log('Product deleted successfully')
-          res.redirect('/admin/home')
-      }
-
+  if(req.session.admin){    
+    try{
+        const id=req.params.productId
+        const product= await productModel.findById(id)
+        
+        if(!product){
+            console.log('Product not found');
+        }
+        else{
+            await productModel.findByIdAndDelete(id);
+            console.log('Product deleted successfully')
+            res.redirect('/admin/home')
+        }
+  
+    }
+    catch(error){
+        console.log('error when delete product',error.message);
+    }
   }
-  catch(error){
-      console.log('error when delete product',error.message);
+  else{
+      res.redirect('/login')
   }
 }
 
@@ -66,20 +76,25 @@ exports.deleteProductGet=async(req,res)=>{
 //Field to Controll Edit product
 
 exports.editProductGet=async(req,res)=>{
-  try{
-      const id=req.params.productId
-      const product= await productModel.findById(id)
-      
-      if(!product){
-          console.log('Product not found');
-      }
-      else{
-          res.render('admin/editProduct',{product})
-      }
-
+  if(req.session.admin){    
+    try{
+        const id=req.params.productId
+        const product= await productModel.findById(id)
+        
+        if(!product){
+            console.log('Product not found');
+        }
+        else{
+            res.render('admin/editProduct',{product})
+        }
+  
+    }
+    catch(error){
+        console.log('error when edit product',error.message);
+    }
   }
-  catch(error){
-      console.log('error when edit product',error.message);
+  else{
+      res.redirect('/login')
   }
 }
 

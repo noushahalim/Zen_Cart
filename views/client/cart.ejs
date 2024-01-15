@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+    <div class="main">
+        <div class="nav">
+            <img src="/images/zencart-logo-white.jpg" alt="logo" class="logo">
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="search" name="search" class="search-box" placeholder="Search for Products, Brands and More">
+            </div>
+            <button class="home" type="submit" onclick="window.location.href='/client/home'">
+                <i class="fa-solid fa-house home-icon"></i>
+                <p class="home-text">Home</p>
+            </button>
+            <a href="/profile" class="profile">
+                <i class="fa-regular fa-circle-user user-icon"></i>
+                <p class="profile-text">Profile</p>
+            </a>
+            <a href="/logout" class="logout">
+                <i class="fa-solid fa-arrow-right-from-bracket logout-icon"></i>
+                <p class="logout-text">LogOut</p>
+            </a>
+        </div>
+        <div class="center">
+                <% let a=0 %>
+                <% let b=0 %>
+
+                <% for(let i = 0; i < cart.length; i++) { %>
+                <div class="card">
+                    <div class="image"><img src="/<%= products[i].imagePath %>" alt="Product Image" class="productImage"></div>
+                    <div class="details-section">
+                        <div class="name"><%= products[i].productName %></div>
+                        <div class="details"><%= products[i].productDescription %></div>
+                        <div class="price"> ₹ <%= products[i].productPrice %></div>
+                    </div>
+                    <hr class="hr1">
+                    <div class="controll">
+                        <div class="quantity">
+                            <p class="quantity-text">Quantity : </p>
+                            <button class="quantity-button"><%= cart[i].quantity %></button>
+                            <% a=a+cart[i].quantity %>
+                            <% let c=cart[i].quantity*products[i].productPrice %>
+                            <% b=b+c %>
+                        </div>
+                        <button class="remove" type="submit" onclick="window.location.href='/client/cartRemove/<%= cart[i]._id %>'">Remove From Cart</button>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+        <div class="order">
+            <div class="order-1">
+                <p class="price-text">PRICE DETAILS</p>
+                <hr class="hr2">
+                <div class="price-det">
+                    <p>Price ( <%= a %> item )</p>
+                    <p> ₹ <%= b %></p>
+                </div>
+                <div class="delivary">
+                    <p>Delivery Charges </p>
+                    <p> ₹ 40</p>
+                </div>
+                <div class="total">
+                    <p>Total Amount</p>
+                    <p> ₹ <%= b+40 %></p>
+                </div>
+            </div>
+            <div class="order-2">
+                <button type="submit" class="order-text" onclick="window.location.href='/user/placeOrder'">PLACE ORDER</button>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="copyright-text">©2024-2124 Zencart.com</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -7,5 +7,14 @@ const clientController=require('../controller/clientController')
 
 router.get('/home',clientController.homeGet)
 
+//Field to Controll Cart
+
+router.get('/cart',clientController.cartGet)
+
+//Field to Controll Add Cart
+
+router.get('/addCart/:productId',clientController.addCartGet)
+
+router.get('/cartRemove/:cartId',clientController.cartRemove)
 
 module.exports=router
